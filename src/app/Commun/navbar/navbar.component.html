@@ -1,0 +1,15 @@
+<!-- navbar.component.html -->
+<nav class="navbar">
+  <div class="navbar-brand">DASHBOARD D'ANALYSE</div>
+  <div class="navbar-icons">
+    <div class="notification-icon" (click)="toggleNotifications()">
+      <i class="fa fa-bell"></i>
+      <span class="badge" *ngIf="notifications.length > 0">{{ notifications.length }}</span>
+    </div>
+  </div>
+  <div class="notifications-dropdown" *ngIf="showNotifications">
+    <div *ngFor="let notification of notifications" class="notification-item">
+      {{ notification.message }}
+    </div>
+  </div>
+</nav>

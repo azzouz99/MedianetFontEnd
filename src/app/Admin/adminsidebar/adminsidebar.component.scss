@@ -1,0 +1,51 @@
+/* Media query for small screens */
+@media (max-width: 576px) {
+  #olaa {
+    font-size: 0;
+  }
+
+  #sidebar1 {
+    background-color: #d3f3ff;
+    width: 50%;
+    height: 100vh;
+    font-size: 0;
+    position: fixed; /* Make the sidebar fixed */
+    top: 0; /* Position it at the top of the viewport */
+    left: 0; /* Align it to the left of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+  }
+
+  #logomedianet {
+    width: 100px;
+    height: auto;
+  }
+}
+
+/* Media query for medium to large screens */
+@media (max-width: 1300px) {
+  .bg-light {
+    width: 280px;
+    height: 100vh;
+    position: fixed; /* Make the sidebar fixed */
+    top: 0; /* Position it at the top of the viewport */
+    left: 0; /* Align it to the left of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+  }
+
+  .main-content {
+    margin-left: 280px; /* Adjust this value based on the sidebar width */
+    padding: 20px;
+  }
+}
+
+/* Styles for larger screens */
+.bg-light {
+  width: 280px;
+  height: 100vh;
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Position it at the top of the viewport */
+  left: 0; /* Align it to the left of the viewport */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+/* Add margin to the main content to prevent it from overlapping the sidebar */

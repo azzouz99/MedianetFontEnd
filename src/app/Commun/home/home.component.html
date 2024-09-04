@@ -1,0 +1,262 @@
+<div class="home-face">
+<div class="welcome-pack" style="">Bienvenue {{userConnected.lastName}} ! </div>
+
+  <div style="padding: 20px" class="d-flex justify-content-between">
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(198, 18, 5, 1);"><path d="m14 9.586-4 4-6.293-6.293-1.414 1.414L10 16.414l4-4 4.293 4.293L16 19h6v-6l-2.293 2.293z"></path></svg>
+
+      <div class="title-card">
+    Perte
+  </div>
+      <div class="body-card" style="color: red">
+        <span class="value-card">{{ this.result['perte'] | numberAbbreviate }}</span>
+        <span class="repere-card">DT</span>
+      </div>
+
+
+
+
+    </div>
+    <div  class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(171,168,168);transform: ;msFilter:;"><path d="M14 9h8v6h-8z"></path><path d="M20 3H5C3.346 3 2 4.346 2 6v12c0 1.654 1.346 3 3 3h15c1.103 0 2-.897 2-2v-2h-8c-1.103 0-2-.897-2-2V9c0-1.103.897-2 2-2h8V5c0-1.103-.897-2-2-2z"></path></svg>
+      <div   class="title-card">
+        Rentabilité
+      </div>
+      <div  class="body-card">
+       <span class="value-card"> {{ this.result['percent of win'] | numberAbbreviate }}</span><span class="repere-card">%</span>
+      </div>
+    </div>
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(41, 172, 4, 1);transform: ;msFilter:;"><path d="m10 10.414 4 4 5.707-5.707L22 11V5h-6l2.293 2.293L14 11.586l-4-4-7.707 7.707 1.414 1.414z"></path></svg>
+      <div class="title-card">
+        Profitabilité
+      </div>
+      <div class="body-card" style="color:green;">
+        <span class="value-card">
+        {{ this.result['marge'] | numberAbbreviate }}</span>
+        <span class="repere-card">DT</span>
+      </div>
+    </div>
+  </div>
+    <div style="padding: 20px" class="d-flex justify-content-between">
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(198,18,5);transform: ;msFilter:;"><path d="M14 11h8v2h-8zM4.5 8.552c0 1.995 1.505 3.5 3.5 3.5s3.5-1.505 3.5-3.5-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1h2z"></path></svg>
+      <div class="title-card">
+        Perte du jours
+      </div>
+      <div style="color: red" class="body-card">
+        <span class="value-card">{{ this.result['lost day'] | numberAbbreviate}} </span><span class="repere-card">Jours</span>
+      </div>
+    </div>
+    <div  class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(171,168,168);transform: ;msFilter:;"><path d="M19 22h1v-2h-1v-1a7.014 7.014 0 0 0-3.433-6.02c-.355-.21-.567-.547-.567-.901v-.158c0-.354.212-.691.566-.9A7.016 7.016 0 0 0 19 5V4h1V2H4v2h1v1a7.016 7.016 0 0 0 3.434 6.021c.354.209.566.545.566.9v.158c0 .354-.212.691-.566.9A7.016 7.016 0 0 0 5 19v1H4v2h15zM17 4v1a5.005 5.005 0 0 1-1.004 3H8.004A5.005 5.005 0 0 1 7 5V4h10zM9.45 14.702c.971-.574 1.55-1.554 1.55-2.623V12h2v.079c0 1.068.579 2.049 1.551 2.623A4.98 4.98 0 0 1 16.573 17H7.427a4.977 4.977 0 0 1 2.023-2.298z"></path></svg>
+      <div class="title-card">
+        Productivité
+      </div>
+      <div class="body-card">
+        <span class="value-card">{{ this.result['productivity'] }} </span><span class="repere-card">%</span>
+      </div>
+    </div>
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(41,172,4);transform: ;msFilter:;"><path d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5 1.505 3.5 3.5 3.5zM9 13H7c-2.757 0-5 2.243-5 5v1h12v-1c0-2.757-2.243-5-5-5zm11.294-4.708-4.3 4.292-1.292-1.292-1.414 1.414 2.706 2.704 5.712-5.702z"></path></svg>
+      <div class="title-card">
+        Les Jours Additionnels
+      </div>
+      <div style="color: green" class="body-card">
+        <span class="value-card">{{ this.result['win day'] | numberAbbreviate }} </span><span class="repere-card">Jours</span>
+      </div>
+    </div>
+  </div>
+<div class="dashboard-container">
+  <div class="chart-container">
+    <p class="subtitle1">Analyse du performance des articles complets</p>
+    <div style="padding-top: 20px">
+    <apx-chart *ngIf="donutChartOptions4"
+               [title]="donutChartOptions4.title"
+               [series]="donutChartOptions4.series" [chart]="donutChartOptions4.chart"
+               [labels]="donutChartOptions4.labels" [colors]="donutChartOptions4.colors"
+               [fill]="donutChartOptions4.fill">
+    </apx-chart>
+    <apx-chart *ngIf="donutChartOptions5"
+               [title]="donutChartOptions5.title"
+               [series]="donutChartOptions5.series" [chart]="donutChartOptions5.chart"
+               [labels]="donutChartOptions5.labels" [colors]="donutChartOptions5.colors"
+               [fill]="donutChartOptions5.fill">
+    </apx-chart>
+    </div>
+  </div>
+
+
+    <div class="chart-container">
+      <p class="subtitle1">Analyse des articles complets</p>
+      <div class="filter-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Filter by Project Name</mat-label>
+          <input matInput (keyup)="applyFilter($event, 'completed')" placeholder="Enter project name">
+        </mat-form-field>
+      </div>
+      <table mat-table [dataSource]="completedDataSource" class="data-table mat-elevation-z8" matSort >
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Projet</th>
+          <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Article</th>
+          <td mat-cell *matCellDef="let element"> {{element.articleName}} </td>
+        </ng-container>
+
+        <!-- Productivity Column -->
+        <ng-container matColumnDef="productivity">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Productivité</th>
+          <td mat-cell *matCellDef="let element">
+            <label [ngClass]="{
+            'bg-danger': element.productivity === 'Dangerous',
+            'bg-success': element.productivity === 'Successful',
+            'bg-primary': element.productivity === 'Normal',
+            'bg-warning': element.productivity === 'Warning'
+          }" class="d-inline p-2 text-white">
+              {{ displayProductivity(element.productivity) }}
+            </label>
+          </td>
+        </ng-container>
+
+        <!-- Profitability Column -->
+        <ng-container matColumnDef="profitability">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Rentabilité</th>
+          <td mat-cell *matCellDef="let element">
+            <label [ngClass]="{
+            'bg-danger': element.profitability === 'Dangerous',
+            'bg-success': element.profitability === 'Successful',
+            'bg-primary': element.profitability === 'Normal',
+            'bg-warning': element.profitability === 'Warning'
+          }" class="d-inline p-2 text-white">
+              {{ displayProfitability(element.profitability) }}
+            </label>
+          </td>
+        </ng-container>
+
+        <!-- Project Name Column -->
+
+        <tr mat-header-row *matHeaderRowDef="completedDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: completedDisplayedColumns;"(click)="openDescriptionDialog(row.description)"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="completedPageSize" #completedPaginator
+                     showFirstLastButtons></mat-paginator>
+    </div>
+
+    <div class="chart-container">
+      <p class="subtitle1">Analyse des articles en cours</p>
+      <div class="filter-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Filter by Project Name</mat-label>
+          <input matInput (keyup)="applyFilter($event, 'inProgress')" placeholder="Enter project name">
+        </mat-form-field>
+      </div>
+      <table mat-table [dataSource]="inProgressDataSource" class="data-table mat-elevation-z8" matSort>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Projet</th>
+          <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Article</th>
+          <td mat-cell *matCellDef="let element"> {{element.articleName}} </td>
+        </ng-container>
+
+        <!-- Productivity Column -->
+        <ng-container matColumnDef="productivity">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Couts</th>
+          <td mat-cell *matCellDef="let element">
+            <label [ngClass]="{
+            'bg-danger': element.productivity === 'Warning',
+            'bg-success': element.productivity === 'Warning',
+            'bg-primary': element.productivity === 'Normal',
+            'bg-warning': element.productivity === 'Warning'
+          }" class="d-inline p-2 text-white">
+              {{ displayProfitabilityT(element.productivity) }}
+            </label>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="profitability">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Profitabilité</th>
+          <td mat-cell *matCellDef="let element">
+            <label [ngClass]="{
+            'bg-danger': element.profitability === 'Dangerous',
+            'bg-success': element.profitability === 'Successful',
+            'bg-primary': element.profitability === 'Normal',
+            'bg-warning': element.profitability === 'Warning'
+          }" class="d-inline p-2 text-white">
+              {{ displayProfitability(element.profitability) }}
+            </label>
+          </td>
+        </ng-container>
+
+        <!-- Profitability Column -->
+
+
+
+        <tr mat-header-row *matHeaderRowDef="inProgressDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: inProgressDisplayedColumns; "(click)="openDescriptionDialog(row.description)"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="inProgressPageSize" #inProgressPaginator
+                     showFirstLastButtons></mat-paginator>
+
+    </div>
+
+
+
+  <div class="chart-container">
+    <p class="subtitle1">Analyse Prédictive</p>
+    <div style="padding-top: 20px">
+    <apx-chart *ngIf="barChartOptions2"
+               [title]="barChartOptions2.title"
+               [theme]="barChartOptions2.theme"
+               [series]="barChartOptions2.series" [chart]="barChartOptions2.chart"
+               [plotOptions]="barChartOptions2.plotOptions" [dataLabels]="barChartOptions2.dataLabels"
+               [stroke]="barChartOptions2.stroke" [xaxis]="barChartOptions2.xaxis"
+               [fill]="barChartOptions2.fill" [tooltip]="barChartOptions2.tooltip"
+               [colors]="barChartOptions2.colors">
+    </apx-chart>
+  </div>
+  </div>
+  <div class="chart-container medium-width">
+    <p class="subtitle1">Analyse d'efficacité des articles</p>
+
+    <table mat-table [dataSource]="analysisdataSource" matSort #analysisSort="matSort" class="mat-elevation-z8">
+
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Article </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+      <ng-container matColumnDef="totalmarge">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> La Marge </th>
+        <td mat-cell style=" font-weight: bold;"  [ngStyle]="{'color': element.totalmarge > 0 ? 'green' : element.totalmarge < 0 ? 'red' : 'black'}" *matCellDef="let element"> {{element.totalmarge | number:'1.0-2'}} DT </td>
+      </ng-container>
+      <ng-container matColumnDef="totaladddays">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Les Jours Supplémentaires </th>
+        <td style=" font-weight: bold;" [ngStyle]="{'color': element.totaladddays > 0 ? 'green' : element.totaladddays < 0 ? 'red' : 'black'}" mat-cell *matCellDef="let element"> {{element.totaladddays }} Jours </td>
+      </ng-container>
+      <ng-container matColumnDef="ratio_r">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rentabilité</th>
+        <td style=" font-weight: bold;" [ngStyle]="{'color': element.ratio_r > 0.25 ? 'green' : element.ratio_r < 0.25 ? 'red' : 'black'}" mat-cell *matCellDef="let element"> {{element.ratio_r * 100 | number:'1.2-2' }} %  </td>
+      </ng-container>
+      <ng-container matColumnDef="ratio_p">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ratio du Productivité </th>
+        <td style=" font-weight: bold;" [ngStyle]="{'color': element.ratio_p > 1 ? 'green' : element.ratio_p < 1 ? 'red' : 'black'}" mat-cell *matCellDef="let element"> {{element.ratio_p| number:'1.2-2'}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="chart-container small-width" ></div>
+</div>
+
+</div>

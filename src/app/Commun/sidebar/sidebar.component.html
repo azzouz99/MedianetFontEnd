@@ -1,0 +1,109 @@
+<div class="sidebar close">
+  <div class="logo-details">
+   <img src="assets/image/Logo-MT.png" style="width: 60px;padding-left: 10px">
+    <span class="logo_name">Medianet</span>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a [routerLink]="['/home']" >
+        <i class='bx bx-grid-alt' ></i>
+        <span class="link_name">Acceuil</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" >Accueil</a></li>
+      </ul>
+    </li>
+    <li>
+      <a [routerLink]="['/decisions']" >
+        <i class='bx bx-bell-plus'></i>
+        <span class="link_name">Décisions</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" >Décisions</a></li>
+      </ul>
+    </li>
+    <li>
+      <a [routerLink]="['/dashboard']" >
+        <i class='bx bx-pie-chart-alt-2' ></i>
+        <span class="link_name">Dashboard</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" >Dashboard</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a [routerLink]="['/prediction']" >
+        <i class='bx bx-line-chart' ></i>
+        <span class="link_name">Prédiction</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" >Prédiction</a></li>
+      </ul>
+    </li>
+    <li>
+      <a [routerLink]="['/data']" >
+        <i class='bx bx-data' ></i>
+        <span class="link_name">Dataset</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" >Dataset</a></li>
+      </ul>
+    </li>
+    <li>
+      <a [routerLink]="['/details']">
+        <i class='bx bx-cog' ></i>
+        <span class="link_name">Setting</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Setting</a></li>
+      </ul>
+    </li>
+
+
+
+    <!--
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-plug' ></i>
+            <span class="link_name">Plugins</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+      <ul class="sub-menu">
+          <li><a class="link_name" href="#">Plugins</a></li>
+          <li><a href="#">UI Face</a></li>
+          <li><a href="#">Pigments</a></li>
+          <li><a href="#">Box Icons</a></li>
+        </ul>
+    </li>-->
+
+    <div class="profile-details">
+      <div class="profile-content">
+        <img  [src]="imageUrl" alt="profileImg">
+      </div>
+      <div class="name-job">
+        <div class="profile_name">{{ userConnected.firstName }}</div>
+
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+    <li>
+      <a (click)="logout()" >
+        <i class='bx bx-log-out'></i>
+        <span class="link_name">Log out</span>
+      </a>
+      <ul class="sub-menu blank">
+        <li><a class="link_name" href="#">Log out</a></li>
+      </ul>
+    </li>
+
+    <li>
+
+    </li>
+  </ul>
+</div>
+<!--
+
+-->

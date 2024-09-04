@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
+.home-face{
+  background-color: #f1f1f1;
+
+}
+.mat-header-row{
+
+  background-color: #141E30FF;
+  color: white; /* Set text color to white for better readability */
+}
+::ng-deep .apexcharts-title-text {
+  background-color: #fbb431; /* Set your desired background color */
+  padding: 10px; /* Add some padding for better appearance */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  display: inline-block; /* Ensure the background only covers the text */
+}
+.welcome-pack{
+  letter-spacing: 5px;
+  padding-left: 30px;
+  padding-top: 30px;
+font-size: 50px;
+  font-family: "Anton SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dashboard-container {
+  background-color: #f1f1f1;
+width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px ;
+
+}
+
+
+.chart-container {
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  grid-column: span 1;
+  width: 100%;
+
+
+}
+.chart-container.small-width {
+
+  height: 100%;
+  width: 50%;
+  justify-self: end;
+}
+
+.chart-container.medium-width {
+
+  height: 100%;
+  width: 150%;
+}
+.number-container:nth-child(1) {
+  grid-column: span 2;
+}
+.number-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+:host ::ng-deep .apexcharts-canvas {
+  background: #fff;
+}
+
+.apexcharts-legend-series {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apexcharts-legend {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  margin: 10px 0;
+}
+
+
+
+
+.dashboard-container .chart-container .subtitle1  {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #fff;
+  background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+  padding: 10px;
+  margin: 0;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid black;
+}
+.badge {
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 1;
+  padding: .375rem .5625rem;
+  font-weight: normal;
+}
+.filter-container {
+  margin-bottom: 20px;
+  color: #84c0ec;
+}
+/////////////// CARD
+
+/////////////////////////END-CARD
+
+///////////TABLE
+
+
+
+
+
+
+.card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  box-shadow: 5px 5px 5px 5px #c5c5c5;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgba(251, 253, 253, 0.82);
+  width: 300px;
+  height: 100px;
+
+}
+
+.title-card{
+
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: gray;
+}
+
+.body-card .value-card{
+  font-size: 20px;
+  font-weight: 500;
+}
+.body-card .repere-card{
+  font-size: 10px;
+  //  padding-left: 20px;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+

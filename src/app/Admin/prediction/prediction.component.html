@@ -1,0 +1,225 @@
+<div
+class="d-flex justify-content-between">
+<label class="switchy">
+  <input type="checkbox" [(ngModel)]="isProject">
+  <span class="slidery"></span>
+</label>
+<button *ngIf="predictions" (click)="refreshPage()" class="for-refresh" >
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+  </svg>
+  Refresh
+</button>
+
+</div>
+<div *ngIf="isProject; else articleTemplate">
+  <mat-card class=" article-form-card">
+    <h1>Article Form</h1>
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmitArticleForm()">
+      <mat-form-field appearance="outline">
+        <mat-label>Type project</mat-label>
+        <mat-select formControlName="typeProject">
+          <mat-option value="Drupal">Drupal</mat-option>
+          <mat-option value="Spécifique">Spécifique</mat-option>
+          <mat-option value="Application_mobile">Application mobile</mat-option>
+          <mat-option value="Prestashop">Prestashop</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Article</mat-label>
+        <mat-select formControlName="articleName">
+          <mat-option *ngFor="let article of filteredArticles" [value]="article">{{ article }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <div *ngIf="selectedArticle == 'Insertion contenu'">
+        <mat-form-field appearance="outline">
+          <mat-label>Analyste concepteur</mat-label>
+          <input matInput type="number" formControlName="analyste_concepteur">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Gestion et coordination du projet</mat-label>
+          <input matInput type="number" formControlName="gestion_et_coordination_du_projet">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" (click)="getPredictionInsertionContenu()">Predict Insertion Contenu</button>
+      </div>
+      <div *ngIf="selectedArticle == 'Ingénieur système'">
+        <mat-form-field appearance="outline">
+          <mat-label>Gestion et coordination du projet</mat-label>
+          <input matInput type="number" formControlName="gestion_et_coordination_du_projet">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" (click)="getPredictionIngenieurSysteme()">Predict Ingenieur Systeme</button>
+      </div>
+      <div *ngIf="selectedArticle == 'Ingénieur test'">
+        <mat-form-field appearance="outline">
+          <mat-label>Gestion et coordination du projet</mat-label>
+          <input matInput type="number" formControlName="gestion_et_coordination_du_projet">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Ingénieur système</mat-label>
+          <input matInput type="number" formControlName="ingenieur_systeme">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" (click)="getPredictionIngenieurTest()">Predict Ingenieur Test</button>
+      </div>
+      <div *ngIf="selectedArticle == 'Consultant SEO'">
+        <mat-form-field appearance="outline">
+          <mat-label>Analyste concepteur</mat-label>
+          <input matInput type="number" formControlName="analyste_concepteur">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Gestion et coordination du projet</mat-label>
+          <input matInput type="number" formControlName="gestion_et_coordination_du_projet">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" (click)="getPredictionSeo()">Predict SEO</button>
+      </div>
+      <div *ngIf="selectedArticle == 'Intégration'">
+        <mat-form-field appearance="outline">
+          <mat-label>Ingénieur système</mat-label>
+          <input matInput type="number" formControlName="ingenieur_systeme">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Ingénieur test</mat-label>
+          <input matInput type="number" formControlName="ingenieur_test">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Infographie</mat-label>
+          <input matInput type="number" formControlName="infographie">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" (click)="getPredictionIntegration()">Predict Integration</button>
+      </div>
+      <div *ngIf="selectedArticle == 'Infographie '">
+        <mat-form-field appearance="outline">
+          <mat-label>Analyste concepteur</mat-label>
+          <input matInput type="number" formControlName="analyste_concepteur">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Insertion contenu</mat-label>
+          <input matInput type="number" formControlName="insertion_contenu">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="getPredictionInfographie()">Predict Infographie</button>
+      </div>
+      <div *ngIf="selectedArticle == 'Formation'">
+        <mat-form-field appearance="outline">
+          <mat-label>Gestion et coordination du projet</mat-label>
+          <input matInput type="number" formControlName="gestion_et_coordination_du_projet">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="button" (click)="getPredictionFormation()">Predict Formation</button>
+      </div>
+    </form>
+    <div *ngIf="prediction">
+      <h2>Prediction Results</h2>
+      <p>{{prediction}}</p>
+    </div>
+
+    <!--
+    <div *ngIf="predictions">
+      <h2>Prediction Results</h2>
+      <div *ngFor="let key of keys(predictions)">
+        <p>{{ key }}: {{ predictions[key] }}</p>
+      </div>
+    </div>-->
+
+  </mat-card>
+</div>
+<ng-template  #articleTemplate>
+  <div class="welcome-pack" > Prédiction pour un projet Drupal</div>
+  <form [formGroup]="projectForm" (ngSubmit)="getPredictionAll()">
+    <div class="introduction">
+    Avant de commencer, estimons le nombre de jours nécessaires pour les phases de <span style="color: #1a73e8;
+font-weight: bold">Gestion et coordination du projet</span> et de <span style="color: #1a73e8;
+font-weight: bold">Analyste concepteur</span>.
+    <br>Une fois ces estimations établies, nous pourrons procéder à la construction de notre prédiction.</div>
+    <mat-form-field appearance="fill">
+      <mat-label>Gestion et coordination du projet</mat-label>
+      <input matInput formControlName="gestionCoordination" placeholder="Donner le nombre du jours que vous allez les consommer">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Analyste concepteur</mat-label>
+      <input matInput formControlName="analysteConcepteur" placeholder="Donner le nombre du jours que vous allez les consommer">
+    </mat-form-field>
+    <div class="d-grid gap-2">
+    <button *ngIf="!predictions" mat-raised-button color="primary" type="submit">Commencer la prédiction</button>
+    </div>
+  </form>
+
+  <div *ngIf="predictions" class="d-flex justify-content-between" >
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 24 24" style="fill: rgba(20, 155, 4, 1);transform: ;msFilter:;"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 11c-2 0-2-.63-2-1s.7-1 2-1 1.39.64 1.4 1h2A3 3 0 0 0 13 7.12V6h-2v1.09C9 7.42 8 8.71 8 10c0 1.12.52 3 4 3 2 0 2 .68 2 1s-.62 1-2 1c-1.84 0-2-.86-2-1H8c0 .92.66 2.55 3 2.92V18h2v-1.08c2-.34 3-1.63 3-2.92 0-1.12-.52-3-4-3z"></path></svg>
+      <div class="title-card">
+        Profitabilité
+      </div>
+      <div class="body-card" style="color: green">
+        <span class="value-card">{{ this.budget - this.cost_val }}</span>
+        <span class="repere-card">DT</span>
+      </div>
+
+
+
+
+    </div>
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 24 24" style="fill: rgba(9, 0, 0, 1);transform: ;msFilter:;"><path d="M16 12h2v4h-2z"></path><path d="M20 7V5c0-1.103-.897-2-2-2H5C3.346 3 2 4.346 2 6v12c0 2.201 1.794 3 3 3h15c1.103 0 2-.897 2-2V9c0-1.103-.897-2-2-2zM5 5h13v2H5a1.001 1.001 0 0 1 0-2zm15 14H5.012C4.55 18.988 4 18.805 4 18V8.815c.314.113.647.185 1 .185h15v10z"></path></svg>
+      <div class="title-card">
+       Budget
+      </div>
+      <div class="body-card" style="color: black">
+        <span class="value-card">{{ this.budget }}</span>
+        <span class="repere-card">DT</span>
+      </div>
+
+
+
+
+    </div>
+    <div class="card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 24 24" style="fill: rgba(9, 0, 0, 1);transform: ;msFilter:;"><path d="M21 15a9.11 9.11 0 0 0-.18-1.81 8.53 8.53 0 0 0-.53-1.69 8.08 8.08 0 0 0-.83-1.5 8.73 8.73 0 0 0-1.1-1.33A8.27 8.27 0 0 0 17 7.54a8.08 8.08 0 0 0-1.53-.83L15 6.52V5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v1.52l-.5.19a8.08 8.08 0 0 0-1.5.83 8.27 8.27 0 0 0-1.33 1.1A8.27 8.27 0 0 0 4.54 10a8.08 8.08 0 0 0-.83 1.53 9 9 0 0 0-.53 1.69A9.11 9.11 0 0 0 3 15v3H2v2h20v-2h-1zM5 15a7.33 7.33 0 0 1 .14-1.41 6.64 6.64 0 0 1 .41-1.31 7.15 7.15 0 0 1 .64-1.19 7.15 7.15 0 0 1 1.9-1.9A7.33 7.33 0 0 1 9 8.68V15h2V6h2v9h2V8.68a8.13 8.13 0 0 1 .91.51 7.09 7.09 0 0 1 1 .86 6.44 6.44 0 0 1 .85 1 6 6 0 0 1 .65 1.19 7.13 7.13 0 0 1 .41 1.31A7.33 7.33 0 0 1 19 15v3H5z"></path></svg>
+      <div class="title-card">
+        Couts
+      </div>
+      <div class="body-card" style="color: black">
+        <span class="value-card">{{this.cost_val }}</span>
+        <span class="repere-card">DT</span>
+      </div>
+
+
+
+
+    </div>
+
+
+  </div>
+  <apx-chart *ngIf="barChartOptions2" [series]="barChartOptions2.series" [chart]="barChartOptions2.chart"
+             [plotOptions]="barChartOptions2.plotOptions" [dataLabels]="barChartOptions2.dataLabels"
+             [stroke]="barChartOptions2.stroke" [xaxis]="barChartOptions2.xaxis"
+             [fill]="barChartOptions2.fill" [tooltip]="barChartOptions2.tooltip"
+             [colors]="barChartOptions2.colors">
+  </apx-chart>
+  <table *ngIf="predictions" class="table table-success table-striped">
+    <thead>
+    <tr>
+
+      <th scope="col">Analyste concepteur</th>
+      <th scope="col">Consultant SEO</th>
+      <th scope="col">Formation</th>
+      <th scope="col">Infographie</th>
+      <th scope="col">Ingénieur système</th>
+      <th scope="col">Gestion et coordination du projet</th>
+      <th scope="col">Ingénieur test</th>
+      <th scope="col">Insertion contenu</th>
+      <th scope="col">Intégration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td *ngFor="let prediction of display_cost; let i = index">
+        {{prediction}} DT
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</ng-template>
+
+

@@ -1,0 +1,63 @@
+
+@media (max-width: 576px) {
+    #sidebar1 {
+      width: 100%; /* Set full width for smaller screens */
+    }
+  }
+.full-height {
+  height: 100vh;
+
+}
+.main-content {
+  margin-left: 50px; /* Adjust this value based on the sidebar width */
+
+}
+
+/* Style for the content area to use flex-grow to fill the remaining space */
+
+
+/* Optional: Add padding or margins as needed */
+.content > * {
+  width: 100%; /* Make sure child elements use full width */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  background-image: url("../assets/image/login.jpg");
+}
+#sidebar1 {
+  width: 280px;
+  height: 100vh;
+  position: fixed; /* Make the sidebar fixed */
+  top: 0; /* Position it at the top of the viewport */
+  left: 0; /* Align it to the left of the viewport */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  background-color: #d3f3ff; /* Your sidebar background color */
+  overflow-y: auto; /* Add vertical scrolling if needed */
+}
+#mainContent {
+  margin-left: 280px; /* Adjust this value based on the sidebar width */
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto; /* Add vertical scrolling if needed */
+}
+.home-section{
+  position: relative;
+  height: 100vh;
+  left: 75px;
+  width: calc(100% - 75px);
+  transition: all 0.5s ease;
+}
+.login-tm{
+  padding: 0px;
+  background-color: black;
+}
+
+@media (max-width: 420px) {
+  .sidebar.close .nav-links li .sub-menu{
+    display: none;
+  }
+}

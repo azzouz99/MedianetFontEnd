@@ -1,0 +1,55 @@
+<div class="dataset">
+<div class="title_dash"></div>
+<div style="padding-top: 30px" class="dashboard-container">
+<div class="chart-container">
+
+  <div class="d-grid gap-2" style="font-weight: bold;color: #1a73e8">
+    Si tu as besoin d'aide à propos la structure,
+    tu peux l'exporter
+  <button (click)="download()"  type="button" class="btn btn-primary"><i class='bx bx-export' style='color:#fdfdfd'  ></i> Exporter la structure du fichier </button>
+  </div>
+    <div class="d-grid gap-2" style="padding-top: 180px;
+font-weight: bold;">
+      Si vous n'avez pas besoin de l'ancienne base de données, vous pouvez la supprimer.
+
+  <button (click)="openDialog()" type="button" class="btn btn-secondary"><i class='bx bx-trash'></i> Supprimer la base de donnéés</button>
+    </div>
+
+</div>
+  <div class="chart-container">
+<div class="d-flex justify-content-center">
+  <div class="containerino">
+    <div class="header">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Replace with your SVG icon for file upload header -->
+        <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24006 10.1959M12 12V21M12 12L15 15M12 12L9 15" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+      <p>Browse File to upload!</p>
+    </div>
+
+    <label for="file" class="footer">
+      <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <!-- Replace with your SVG icon for file label -->
+        <path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path>
+        <path d="M18.153 6h-.009v5.342H23.5v-.002z"></path>
+      </svg>
+      <p>{{ selectedFileName }}</p>
+      <svg (click)="selectedFileName='Not selected file'" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Replace with your SVG icon for file input -->
+        <path d="M5.16565 10.1534C5.07629 8.99181 5.99473 8 7.15975 8H16.8402C18.0053 8 18.9237 8.9918 18.8344 10.1534L18.142 19.1534C18.0619 20.1954 17.193 21 16.1479 21H7.85206C6.80699 21 5.93811 20.1954 5.85795 19.1534L5.16565 10.1534Z" stroke="#000000" stroke-width="2"></path>
+        <path d="M19.5 5H4.5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M10 3C10 2.44772 10.4477 2 11 2H13C13.5523 2 14 2.44772 14 3V5H10V3Z" stroke="#000000" stroke-width="2"></path>
+      </svg>
+    </label>
+
+    <input id="file" type="file" (change)="onFileSelected($event)">
+  </div>
+</div>
+</div>
+  <div class="chart-container" style="grid-column: span 2;font-weight: bold">
+    La base de données contient<span> {{previous_upload['project number']}}</span> projets et <span>{{ previous_upload['in_progress articles']+previous_upload['completed articles'] }}</span>  articles.
+    Parmi eux, <span>{{previous_upload['completed project']}}</span> projets sont complets tandis que <span>{{previous_upload['in_progress project']}}</span> sont en cours. De plus, <span>{{ previous_upload['completed articles'] }}</span> articles sont achevés, alors que <span>{{previous_upload['in_progress articles']}}</span> sont encore en cours.
+  </div>
+</div>
+<div class="title_dash">Espace de gestion de base de données</div>
+</div>

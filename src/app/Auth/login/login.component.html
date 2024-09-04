@@ -1,0 +1,68 @@
+
+<!---
+<div class="content">
+  <div class="container">
+  <div class="heading"><img id="logomedianet" src="../../assets/image/logo-medianet.png"></div>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length">
+    <p *ngFor="let msg of errorMsg"> Verifier Votre Identifiant {{msg}}</p>
+  </div>
+  <form class="form" action="">
+    <input
+      [(ngModel)]="authRequest.email"
+      placeholder="E-mail"
+      id="email"
+      name="email"
+      type="email"
+      class="input"
+      required=""
+    />
+    <input
+      [(ngModel)]="authRequest.password"
+      placeholder="Password"
+      id="password"
+      name="password"
+      type="password"
+      class="input"
+      required=""
+    />
+    <span class="forgot-password"><a href="#">Forgot Password ?</a></span>
+    <input (click)="login()" value="Sign In" type="submit" class="login-button" />
+    <input (click)="register()" value="Register" type="submit" class="register-button" style="background-color: #FBB431" />
+  </form>
+
+
+
+</div>
+
+</div>
+
+
+-->
+
+<!--Stylesheet-->
+<div class="login-container">
+<div class="background">
+  <div class="shape"></div>
+  <div class="shape"></div>
+</div>
+<div class="login-tm" >
+
+<form action="">
+  <img src="../../../assets/image/logo-medianet.png">
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length">
+    <p *ngFor="let msg of errorMsg"> Verifier Votre Identifiant {{msg}}</p>
+  </div>
+  <label for="email">Adresse E-mail</label>
+  <input [(ngModel)]="authRequest.email" style="color:white;" name="email" type="email" required="" placeholder="Adresse E-mail" id="email">
+
+  <label for="password">Mot de passe</label>
+  <input  [(ngModel)]="authRequest.password" style="color:white;" type="password" name="password" placeholder="Mot de passe" id="password">
+
+  <button (click)="login()" ><span style="color: #fbb431">Conn</span><span style="color: #0cb3d7">exion</span></button>
+  <div (click)="register()" class="register-form">
+ <span style="color: #fbb431">Créer nouve</span><span style="color: #0cb3d7">au compte</span>
+  </div>
+
+</form>
+</div>
+</div>

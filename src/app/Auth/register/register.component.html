@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="heading"><img id="logomedianet" src="../../assets/image/logo-medianet.png"></div>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMsg.length > 0">
+    <p *ngFor="let msg of errorMsg">{{msg}}</p>
+  </div>
+  <form class="form" action="">
+    <div class="input-container">
+    <input
+      [(ngModel)]="registerRequest.lastname"
+      placeholder="Last Name"
+      id="nom"
+      name="email"
+      type="email"
+      class="input-d"
+      required=""
+    />
+    <input
+      [(ngModel)]="registerRequest.firstname"
+      placeholder="First Name"
+      id="prenom"
+      name="prenom"
+      type="text"
+      class="input-d"
+      required=""
+    />
+    </div>
+    <input
+      [(ngModel)]="registerRequest.email"
+      placeholder="Email"
+      id="email"
+      name="password"
+      type="email"
+      class="input"
+      required=""
+    />
+    <input
+      [(ngModel)]="registerRequest.password"
+      placeholder="Password"
+      id="password"
+      name="password"
+      type="password"
+      class="input"
+      required=""
+    />
+    <input
+      placeholder="Confirm password"
+      id="repassword"
+      name="password"
+      type="password"
+      class="input"
+      required=""
+    />
+
+
+    <input (click)="register()"  value="Sign Up" type="submit" class="login-button" />
+    <div class="account-message">
+      <span style="color: darkgray">Already have an account?</span>
+      <a routerLink="/login" class="login-link"> Login</a>
+    </div>
+  </form>
+
+
+</div>

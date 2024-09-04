@@ -1,0 +1,149 @@
+.container {
+  max-width: 550px;
+  background: #f8f9fd;
+  background: linear-gradient(
+      0deg,
+      rgb(211, 243, 255) 0%,
+      rgb(211, 243, 255) 100%
+  );
+  border-radius: 40px;
+  padding: 25px 35px;
+ // border: 5px solid rgb(255, 255, 255);
+  box-shadow: rgb(210, 181, 129) 0px 30px 30px -20px;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(251, 180, 49);
+}
+
+.form {
+  margin-top: 20px;
+
+}
+
+.form .input {
+  width: 100%;
+  background: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 20px;
+  margin-top: 15px;
+  box-shadow: #ffd897 0px 10px 10px -5px;
+  border-inline: 2px solid transparent;
+}
+
+.form .input::-moz-placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input::placeholder {
+  color: rgb(170, 170, 170);
+}
+
+.form .input:focus {
+  outline: none;
+  border-inline: 2px solid #f8b948;
+}
+
+.form .forgot-password {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.form .forgot-password a {
+  font-size: 11px;
+  color: #fbb431;
+  text-decoration: none;
+}
+
+.form .login-button {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  background: linear-gradient(
+      45deg,
+      rgb(251, 180, 49) 0%,
+      rgb(248, 185, 72) 100%
+  );
+  color: white;
+  padding-block: 15px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgba(245, 189, 95, 0.75) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.form .login-button:hover {
+  transform: scale(1.03);
+  box-shadow: rgba(245, 189, 95, 0.75) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+  transform: scale(0.95);
+  box-shadow: rgba(245, 189, 95, 0.75) 0px 15px 10px -10px;
+}
+
+
+
+.social-account-container .social-accounts .social-button .svg {
+  fill: white;
+  margin: auto;
+}
+
+.social-account-container .social-accounts .social-button:hover {
+  transform: scale(1.2);
+}
+
+.social-account-container .social-accounts .social-button:active {
+  transform: scale(0.9);
+}
+
+.form {
+  .input-container {
+    display: flex;
+    gap: 15px; // Adds space between the inputs
+
+    .input-d {
+      flex: 1; // This makes each input take equal space in the container
+      width: auto; // Resetting width to auto to use flexbox properties
+    }
+  }
+
+  .input-d {
+    background: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: #f8e4c3 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+
+    &::-moz-placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    &::placeholder {
+      color: rgb(170, 170, 170);
+    }
+
+    &:focus {
+      outline: none;
+      border-inline: 2px solid #f5bd5f;
+    }
+  }
+  .login-link {
+    color: #0cb3d7; // Primary color for the link
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+

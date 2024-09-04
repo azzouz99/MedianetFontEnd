@@ -1,0 +1,155 @@
+.switchy {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 34px;
+}
+.for-refresh{
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 34px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.switchy input {
+  display: none;
+}
+
+.slidery {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3C3C3C;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slidery:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slidery {
+  background-color: #0E6EB8;
+}
+
+input:focus + .slidery {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slidery:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(85px);
+}
+
+/*------ ADDED CSS ---------*/
+.slidery:after {
+  content: 'Projet';
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+
+}
+
+input:checked + .slidery:after {
+  content: 'Article';
+}
+
+/*--------- END --------*/
+.article-form-card {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 50%;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+button {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+/////////////////////////////////////////Containers article
+
+.card {
+  display: flex;
+  align-items: center;
+  border: 2px solid rgba(12, 179, 215, 0.82);
+ // box-shadow: 5px 5px 5px 5px #c5c5c5;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: rgb(234, 234, 234);
+  width: 300px;
+  height: 100px;
+  margin: 20px;
+
+}
+
+.title-card{
+
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  color: gray;
+}
+
+.body-card .value-card{
+  font-size: 20px;
+  font-weight: 500;
+}
+.body-card .repere-card{
+  font-size: 10px;
+  //  padding-left: 20px;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.welcome-pack{
+  letter-spacing: 5px;
+ text-align: center;
+  padding: 20px 0px 20px 0px;
+  font-size: 50px;
+  font-family: "Anton SC", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.introduction{
+  font-family: "Open Sans", sans-serif;
+padding-left: 20px;
+  padding-bottom: 20px;
+}
+input{
+  padding-right: 30px;
+  padding-left: 30px;
+}
